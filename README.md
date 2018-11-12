@@ -4,7 +4,7 @@ A Plant PAVs Scanner and Pan-genome Construction Pipeline.
 Eukaryotic pan-genome studies have employed several approaches to avoid the difficulty of generating many high-quality genome assemblies: using reference genome-based approaches with targeted de novo assembly, focusing on a small number of relatively low quality de novo assemblies; employing a metagenome approach that combines low depth sequences from many lines with targeted de novo assembly; or creating a pan-transcriptome as a way to reduce complexity. While these studies all have limited ability to capture and describe the full nuclear pan-genome, most suggest a pan-genome that is considerably larger than the genome of any individual line. By taking into account, We developed a new pipeline: ppsPCP. Different from previous studies, this pipeline takes advantage form already assembled high quality genomes, and will use both sequence and annotation based information to develop a complete pan-genome for eukaryotes, specially for plants. 
 
 When comparing two genome assemblies A and B, the ppsPCP pipeline looks for sequences present in A (query-genome) but absent in B (reference-genome) and vice versa. Figure 1 schematically shows the steps implemented in the pipeline.
-![The steps implemented in ppsPCP](pipleline.md)
+![The steps implemented in ppsPCP](pipleline.png)
 
 The fundamental steps performed are:
 1. The query and reference genomes are aligned together. MUMmer was used for whole genome comparisons as follows: first NUCmer alignment package calculated the delta file, then the show-coords utility parsed this delta alignment output;

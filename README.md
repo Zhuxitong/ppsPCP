@@ -6,17 +6,25 @@ ppsPCP is a Pipeline to detect presence/absence variations (PAVs) when comparing
 To find PAVs and make a Pan-genome using single reference and query genomes, ppcPCP will perform the following steps: 
 
 1. The query and reference genomes are aligned together to find PAVs
-2. The alignments are processed to filter out small repeats and to identify the mapping coordinates. The smallest size of PAVs extracted is 100bp
+2. The alignments are processed to filter out small repeats and to identify the mapping coordinates. 
+   The smallest size of PAVs extracted is 100bp
 3. To confirm PAVs, BLASTn against each other is performed
 4. BLASTn results are parsed to classify the PAVs scaffolds into two different categories: 
    - Similar (to the reference tested), similarity is minimal 90% and coverage higher than 80%
    - No hits on the reference
-5. PAVs are compared with the reference genome annotation file and those which were adjacent to each other and having some overlapping gene sequence are extended and merged 
+5. PAVs are compared with the reference genome annotation file and those which were adjacent to each other and 
+   having some overlapping gene sequence are extended and merged 
 6. Genes which were associated with the PAVs are filtered out and make a PAVs annotation file
-7. Filtered PAVs and annotation files are merged with reference genome fasta and annotation file to construct a draft genome
-8. Draft genome is aligned again with the query genome to get the not similar genes information which at least not following one of the previous defined criteria
-9. Filtered out not similar genes then added into files generated at ***step 5*** and repeated the ***steps 5 and 6***. By this way, ppsPCP collects not only sequence based PAVs and its associated genes, but also collect the genes which are less similar and not following one of the previous defined criteria 
-10. Finally, new PAVs sequence and annotation files are merged with the reference genome sequence and annotation files respectively. This pipeline yield a fully annotated Pan-genome which represent a whole sequence/genes set for both genomes.
+7. Filtered PAVs and annotation files are merged with reference genome fasta and annotation file to construct 
+   a draft genome
+8. Draft genome is aligned again with the query genome to get the not similar genes information which at least 
+   not following one of the previous defined criteria
+9. Filtered out not similar genes then added into files generated at **step 5** and repeated the **steps 5 and 6** 
+   By this way, ppsPCP collects not only sequence based PAVs and its associated genes, but also collect the genes 
+   which are less similar and not following one of the previous defined criteria 
+10. Finally, new PAVs sequence and annotation files are merged with the reference genome sequence and annotation 
+    files respectively. This pipeline yield a fully annotated Pan-genome which represent a whole sequence/genes 
+    set for both genomes.
 
 ## Dependencies
 ### System requirement

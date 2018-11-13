@@ -1,19 +1,19 @@
 # ppsPCP
 A Plant PAVs Scanner and Pan-genome Construction Pipeline.
-## Description
-ppsPCP is a Pipeline to detect presence/absence variations (PAVs) when comparing one or multiple plant genomes against selected reference genome and combine the unique PAVs to make a fully annotated Pan-genome.
 
-To find PAVs and make a Pan-genome using single reference and query genomes, ppcPCP will perform the following steps: 
+## Description
+ppsPCP is a Pipeline to detect presence/absence variations (PAVs) and make a fully annotated Pan-genome when comparing one or multiple assembled plant genomes against one selected reference genome.
+
+To find PAVs and construct a Pan-genome using reference and two query genomes, ppcPCP will perform the following steps: 
 ```
-1. The query and reference genomes are aligned together to find PAVs
-2. The alignments are processed to filter out small repeats and to identify the mapping coordinates. 
-   The smallest size of PAVs extracted is 100bp
-3. To confirm PAVs, BLASTn against each other is performed
+1. The reference and first query genome are aligned together to find absent regions
+2. The alignments are processed to filter out PAVs. The smallest size of PAV extracted is 100bp
+3. To confirm PAVs, BLASTn against reference is performed
 4. BLASTn results are parsed to classify the PAVs scaffolds into two different categories: 
-   - Similar (to the reference tested), similarity is minimal 90% and coverage higher than 80%
+   - Similar (to the reference tested) [default: similarity 90% and coverage 80%]
    - No hits on the reference
 5. PAVs are compared with the reference genome annotation file and those which were adjacent to each other and 
-   having some overlapping gene sequence are extended and merged 
+   having some overlapping gene sequence are extended, corrected and merged 
 6. Genes which were associated with the PAVs are filtered out and make a PAVs annotation file
 7. Filtered PAVs and annotation files are merged with reference genome fasta and annotation file to construct 
    a draft genome
@@ -22,13 +22,17 @@ To find PAVs and make a Pan-genome using single reference and query genomes, ppc
 9. Filtered out not similar genes then added into files generated at step 5 and repeated the steps 5 and 6 
    By this way, ppsPCP collects not only sequence based PAVs and its associated genes, but also collect the genes 
    which are less similar and not following one of the previous defined criteria 
-10. Finally, new PAVs sequence and annotation files are merged with the reference genome sequence and annotation 
-    files respectively. This pipeline yield a fully annotated Pan-genome which represent a whole sequence/genes 
-    set for both genomes.
+10. New PAVs sequence and annotation files are merged with the reference genome sequence and annotation 
+    files respectively to create Pan-genome 1. After that, this Pan-genome 1 is used as reference genome for 
+    second query genome and whole process is repeated. Finally, This pipeline yield a fully annotated Pan-genome which 
+    represent a whole sequence/genes set for all three genomes.
 ```
+
 ## Dependencies
+
 ### System requirement
-ppsPCP currently only supports  ***Linux*** system due to the software dependencies. If your system also supports multiple threads, you can assign them through '--thread' parameter, which will be used in the Blastn step to improve the speed.
+ppsPCP currently only supports  ***Linux*** system due to the software dependencies. 
+
 ### Softwares
 1. MUMmer  
 You can find MUMmer [HERE](http://mummer.sourceforge.net/). Installing MUMmer is quite easy:
@@ -75,15 +79,29 @@ $ tar zxvf cufflinks-2.2.1.Linux_x86_64.tar.gz
 $ export PATH=/path/to/cufflinks-2.2.1.Linux_x86_64/:$PATH
 ```
 6. Perl and perl modules  
-In most Linux system, perl is a standard part of build-in softwares. The only problem is that the version of perl maybe too low. Here we recommand the version of perl should be least *5.10.0* (use `perl -v` to check the version). Although most of the modules ppsPCP used already exist, you still need to install the [Bio::Perl](http://www.bioperl.org/) module. Installing the perl module under Linux system sometimes can be troublesome due to the lack of adminstrator permission. This [page](https://bioperl.org/INSTALL.html) inrtoduces three ways to install the Bio::Perl module, but in practice the *cpanm* is the most friendly way to install perl module. You can find a pre-compiled source code for the cpanm [HERE](https://github.com/miyagawa/cpanminus/tree/devel/App-cpanminus)
+Here we recommand the version of perl should be least *5.10.0* (use *perl -v* to check the version). Although most of the modules ppsPCP used are already exist, you still need to install the [Bio::Perl](http://www.bioperl.org/) module. 
+Installing the perl module under Linux system sometimes can be troublesome due to the lack of adminstrator permission. This [page](https://bioperl.org/INSTALL.html) inrtoduces three ways to install the Bio::Perl module, but in practice the *cpanm* is the most friendly way to install perl module. You can find a pre-compiled source code for the cpanm [HERE](https://github.com/miyagawa/cpanminus/tree/devel/App-cpanminus)
 ```
 #if you are using cpanm for the first time, type the following command on your system.(By default, the module installed through cpanm will be in '~/perl5' directory).
 $ cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
 # install Bio::Perl
 $ cpanm Bio::Perl
 ```
-## Install ppsPCP
+
+### Download and Installation
 Installing ppsPCP can be very easy. Simply download and uncompress the ppsPCP package, then put the bin directory into your PATH.
+```
+
+$ wget
+$ export PATH=/path/to/bin/:$PATH
+```
+
+##ppsPCP options
+```
+
+
+```
+
 ## Test ppsPCP with example data
 A small dataset in the 'example' directory can be used to test whether ppsPCP can run on your system successfully or not. Move to the 'example' directory and type the following commands:
 ```

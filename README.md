@@ -19,7 +19,7 @@ To find PAVs and make a Pan-genome using single reference and query genomes, ppc
    a draft genome
 8. Draft genome is aligned again with the query genome to get the not similar genes information which at least 
    not following one of the previous defined criteria
-9. Filtered out not similar genes then added into files generated at **step 5** and repeated the **steps 5 and 6** 
+9. Filtered out not similar genes then added into files generated at step 5 and repeated the steps 5 and 6 
    By this way, ppsPCP collects not only sequence based PAVs and its associated genes, but also collect the genes 
    which are less similar and not following one of the previous defined criteria 
 10. Finally, new PAVs sequence and annotation files are merged with the reference genome sequence and annotation 
@@ -75,7 +75,7 @@ $ tar zxvf cufflinks-2.2.1.Linux_x86_64.tar.gz
 $ export PATH=/path/to/cufflinks-2.2.1.Linux_x86_64/:$PATH
 ```
 6. Perl and perl modules  
-In most Linux system, perl is a standard part of build-in softwares. The only problem is that the version of perl maybe too low. Here we recommand the version of perl should be least *5.10.0* (use *perl -v* to check the version). Although most of the modules ppsPCP used already exist, you still need to install the [Bio::Perl](http://www.bioperl.org/) module. Installing the perl module under Linux system sometimes can be troublesome due to the lack of adminstrator permission. This [page](https://bioperl.org/INSTALL.html) inrtoduces three ways to install the Bio::Perl module, but in practice the *cpanm* is the most friendly way to install perl module. You can find a pre-compiled source code for the cpanm [HERE](https://github.com/miyagawa/cpanminus/tree/devel/App-cpanminus)
+In most Linux system, perl is a standard part of build-in softwares. The only problem is that the version of perl maybe too low. Here we recommand the version of perl should be least *5.10.0* (use `perl -v` to check the version). Although most of the modules ppsPCP used already exist, you still need to install the [Bio::Perl](http://www.bioperl.org/) module. Installing the perl module under Linux system sometimes can be troublesome due to the lack of adminstrator permission. This [page](https://bioperl.org/INSTALL.html) inrtoduces three ways to install the Bio::Perl module, but in practice the *cpanm* is the most friendly way to install perl module. You can find a pre-compiled source code for the cpanm [HERE](https://github.com/miyagawa/cpanminus/tree/devel/App-cpanminus)
 ```
 #if you are using cpanm for the first time, type the following command on your system.(By default, the module installed through cpanm will be in '~/perl5' directory).
 $ cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)

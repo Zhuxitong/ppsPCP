@@ -4,7 +4,7 @@ A Plant PAVs Scanner and Pan-genome Construction Pipeline.
 ppsPCP is a Pipeline to detect presence/absence variations (PAVs) when comparing one or multiple plant genomes against selected reference genome and combine the unique PAVs to make a fully annotated Pan-genome.
 
 To find PAVs and make a Pan-genome using single reference and query genomes, ppcPCP will perform the following steps: 
-
+```
 1. The query and reference genomes are aligned together to find PAVs
 2. The alignments are processed to filter out small repeats and to identify the mapping coordinates. 
    The smallest size of PAVs extracted is 100bp
@@ -25,7 +25,7 @@ To find PAVs and make a Pan-genome using single reference and query genomes, ppc
 10. Finally, new PAVs sequence and annotation files are merged with the reference genome sequence and annotation 
     files respectively. This pipeline yield a fully annotated Pan-genome which represent a whole sequence/genes 
     set for both genomes.
-
+```
 ## Dependencies
 ### System requirement
 ppsPCP currently only supports  ***Linux*** system due to the software dependencies. If your system also supports multiple threads, you can assign them through '--thread' parameter, which will be used in the Blastn step to improve the speed.
@@ -127,7 +127,5 @@ make_pan.pl --ref cultivar1.fa --ref_anno cultivar1.gff3 --query cultivar2.fa cu
 We also provide some other useful parameters to control the performance of ppsPCP. *--coverage*, *--sim_pav* and *--sim_gene* are used to filter out similar PAVs and genes described in above steps. We strongly suggest using multiple threads through*--thread*, witch can significantly improve the speed of blastn.
 
 ## Contact us
-- Tahir, m.tahirulqamar@webmail.hzau.edu.cn
+- Muhammad Tahir ul Qamar, m.tahirulqamar@webmail.hzau.edu.cn
 - Zhu xitong, z724@qq.com (E-mail can be in Chinese)
-
-1235456

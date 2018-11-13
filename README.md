@@ -19,7 +19,7 @@ To find PAVs and construct a Pan-genome using reference and two query genomes, p
    a draft genome
 8. Draft genome is aligned again with the query genome to get the not similar genes information which at least 
    not following one of the previous defined criteria
-9. Filtered out not similar genes then added into files generated at **step 5** and repeated the **steps 5 and 6** 
+9. Filtered out not similar genes then added into files generated at step 5 and repeated the steps 5 and 6 
    By this way, ppsPCP collects not only sequence based PAVs and its associated genes, but also collect the genes 
    which are less similar and not following one of the previous defined criteria 
 10. New PAVs sequence and annotation files are merged with the reference genome sequence and annotation 

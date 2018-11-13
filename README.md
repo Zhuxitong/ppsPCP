@@ -33,7 +33,7 @@ $ wget https://sourceforge.net/projects/mummer/files/latest/download
 $ tar -xvzf MUMmerX.X.tar.gz (X means the VERSION of MUMmer)
 $ make check
 $ make install
-#Add MUMmer tools to your PATH
+# Add MUMmer tools to your PATH
 $ export PATH=/path/to/MUMmer/:$PATH
 ```
 2. Blast+  
@@ -41,7 +41,7 @@ You can find Blast+ [HERE](https://blast.ncbi.nlm.nih.gov/Blast.cgi) in NCBI. He
 ```
 $ wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-x64-linux.tar.gz
 $ tar zxvf ncbi-blast-2.7.1+-x64-linux.tar.gz
-#Add Blast+ tools to your PATH
+# Add Blast+ tools to your PATH
 $ export PATH=/path/to/blast+/bin:$PATH
 ```
 3. Bedtools  
@@ -51,7 +51,7 @@ $ wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.2
 $ tar -zxvf bedtools-2.25.0.tar.gz
 $ cd bedtools2
 $ make
-#Add Bedtools tools to your PATH
+# Add Bedtools tools to your PATH
 $ export PATH=/path/to/bedtools/bin:$PATH
 ```
 4. Blat  
@@ -67,15 +67,15 @@ gffread is a build-in tool in [Cufflinks](http://cole-trapnell-lab.github.io/cuf
 ```
 $ wget http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.Linux_x86_64.tar.gz
 $ tar zxvf cufflinks-2.2.1.Linux_x86_64.tar.gz
-#Add gffread to your PATH
+# Add gffread to your PATH
 $ export PATH=/path/to/cufflinks-2.2.1.Linux_x86_64/:$PATH
 ```
 6. Perl and perl modules  
-In most Linux system, perl is a standard part of build-in softwares. The only problem is that the version of perl maybe too low. Here we recommand the version of perl should be least *5.10.0* (use *perl -v* to check the version). Although most of the modules ppsPCP used already exist, you still need to install the [Bio::Perl](http://www.bioperl.org/) module. Installing the perl module under Linux system sometimes can be troublesome due to the lack of adminstrator permission. This [page](https://bioperl.org/INSTALL.html install_bioperl) inrtoduces three ways to install the Bio::Perl module, but in practice the *cpanm* is the most friendly way to install perl module. You can find a pre-compiled source code for the cpanm [HERE](https://github.com/miyagawa/cpanminus/tree/devel/App-cpanminus)
+In most Linux system, perl is a standard part of build-in softwares. The only problem is that the version of perl maybe too low. Here we recommand the version of perl should be least *5.10.0* (use *perl -v* to check the version). Although most of the modules ppsPCP used already exist, you still need to install the [Bio::Perl](http://www.bioperl.org/) module. Installing the perl module under Linux system sometimes can be troublesome due to the lack of adminstrator permission. This [page](https://bioperl.org/INSTALL.html) inrtoduces three ways to install the Bio::Perl module, but in practice the *cpanm* is the most friendly way to install perl module. You can find a pre-compiled source code for the cpanm [HERE](https://github.com/miyagawa/cpanminus/tree/devel/App-cpanminus)
 ```
 #if you are using cpanm for the first time, type the following command on your system.(By default, the module installed through cpanm will be in '~/perl5' directory).
 $ cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
-#install Bio::Perl
+# install Bio::Perl
 $ cpanm Bio::Perl
 ```
 ## Install ppsPCP
@@ -105,7 +105,7 @@ ctg123 . mRNA            1050  9000  .  +  .  ID=mRNA00001;Parent=gene00001;Name
 ctg123 . exon            1300  1500  .  +  .  ID=exon00001;Parent=mRNA00003
 ctg123 . CDS             1201  1500  .  +  0  ID=cds00001;Parent=mRNA00001;Name=edenprotein.1
 ```
-Although it is possible to construct a pan-genome without any annotation information, but then the downstream analyses can only be done based on sequence. So we strongly recommend you to create annotation file for your genome. There are lots of excellent tools to annote a genome, like [Maker](http://www.yandell-lab.org/software/maker.html maker), [PASA](https://github.com/PASApipeline/PASApipeline/wiki PASA) and so on.
+Although it is possible to construct a pan-genome without any annotation information, but then the downstream analyses can only be done based on sequence. So we strongly recommend you to create annotation file for your genome. There are lots of excellent tools to annote a genome, like [Maker](http://www.yandell-lab.org/software/maker.html), [PASA](https://github.com/PASApipeline/PASApipeline/wiki) and so on.
 ### Output files
 The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3' if you create pan-genome with two genome (one reference and one query), as well as some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... et al, with corresponding gff3 file for each of them.
 ## Examlpe commands
@@ -123,5 +123,5 @@ make_pan.pl --ref cultivar1.fa --ref_anno cultivar1.gff3 --query cultivar2.fa cu
 We also provide some other useful parameters to control the performance of ppsPCP. *--coverage*, *--sim_pav* and *--sim_gene* are used to filter out similar PAVs and genes described in above steps. We strongly suggest using multiple threads through*--thread*, witch can significantly improve the speed of blastn.
 
 ## Contact us
-- Zhu xitong, z724@qq.com (E-mail can be in Chinese)
 - Tahir, m.tahirulqamar@webmail.hzau.edu.cn
+- Zhu xitong, z724@qq.com (E-mail can be in Chinese)

@@ -36,14 +36,14 @@ ppsPCP currently only supports  ***Linux*** system due to the software dependenc
 ### Softwares
 1. MUMmer  
 You can find MUMmer [HERE](http://mummer.sourceforge.net/). Installing MUMmer is quite easy:
-
+```
       $ wget https://sourceforge.net/projects/mummer/files/latest/download
       $ tar -xvzf MUMmerX.X.tar.gz (X means the VERSION of MUMmer)
       $ make check
       $ make install
       # Add MUMmer tools to your PATH
       $ export PATH=/path/to/MUMmer/:$PATH
-
+```
 2. Blast+  
 You can find Blast+ [HERE](https://blast.ncbi.nlm.nih.gov/Blast.cgi) in NCBI. Here we download the x64-linux version of Blast+.
 ```

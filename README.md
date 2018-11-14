@@ -93,9 +93,9 @@ Installing ppsPCP can be very easy. You can either download and uncompress the p
 # download the ppsPCP
 $ wget
 or 
-git 
-
-$ export PATH=/path/to/bin/:$PATH
+git clone git@github.com:Zhuxiaobu/pan_genome.git
+# Add the bin to PATH
+$ export PATH=/path/to/ppsPCP/bin/:$PATH
 ```
 
 ## ppsPCP options

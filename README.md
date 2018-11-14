@@ -88,10 +88,13 @@ $ cpanm Bio::Perl
 ```
 
 ### Download and Installation
-Installing ppsPCP can be very easy. Simply download and uncompress the ppsPCP package, then put the bin directory into your PATH.
+Installing ppsPCP can be very easy. You can either download and uncompress the ppsPCP package or through git. After downloading, remember to put the bin directory into your PATH.
 ```
-
+# download the ppsPCP
 $ wget
+or 
+git 
+
 $ export PATH=/path/to/bin/:$PATH
 ```
 

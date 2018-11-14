@@ -24,8 +24,8 @@ To find PAVs and construct a Pan-genome using reference and two query genomes, p
    which are less similar and not following one of the previous defined criteria 
 10. New PAVs sequence and annotation files are merged with the reference genome sequence and annotation 
     files respectively to create Pan-genome 1. After that, this Pan-genome 1 is used as reference genome for 
-    second query genome and whole process is repeated. Finally, This pipeline yield a fully annotated Pan-genome which 
-    represent a whole sequence/genes set for all three genomes.
+    second query genome and whole process is repeated. Finally, This pipeline yield a fully annotated Pan-genome 
+    which represent a whole sequence/genes set for all three genomes.
 ```
 
 ## Dependencies

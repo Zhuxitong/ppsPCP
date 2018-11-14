@@ -45,7 +45,7 @@ $ make install
 $ export PATH=/path/to/MUMmer/:$PATH
 ```
 2. Blast+  
-You can find Blast+ [HERE](https://blast.ncbi.nlm.nih.gov/Blast.cgi) in NCBI. We download the x64-linux version of Blast+.
+You can find Blast+ [HERE](https://blast.ncbi.nlm.nih.gov/Blast.cgi) in NCBI. We downloaded the x64-linux version of Blast+.
 ```
 $ wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-x64-linux.tar.gz
 $ tar zxvf ncbi-blast-2.7.1+-x64-linux.tar.gz
@@ -124,9 +124,9 @@ $ export PATH=/path/to/bin/:$PATH
 A small dataset in the 'example' directory can be used to test whether ppsPCP can run on your system successfully or not. Move to the 'example' directory and type the following commands:
 ```
 $ cd example
-$ 
+$ make_pan.pl --ref Zmw_sc00394.1.fa --ref_anno Zmw_sc00394.1.gff3 --query Zjn_sc00188.1.fa --query_anno Zjn_sc00188.1.gff3
 ```
-If any error occurs, please check the log information or contact us through e-mail.
+If any error occurs, please check the log information or contact us through e-mail. This result has no biological meaning because these two sequences are only a small part of two genomes from [HERE](http://zoysia.kazusa.or.jp/ "zoysia").
 ## Input and output files
 ### Input files
 At least two genome sequence files and two corresponding annotation files are required to run ppsPCP.
@@ -138,7 +138,7 @@ ATCGATCG...
 ```
 File extension doesn't matter, '.fa', '.fasta' or any other suffix can be accepted. But the prefix name of sequence file will be used to indicate the temporary file, so we recommend you to use 'cultivar.fa (like rice.fa)' to run ppsPCP.
 
-Annotation file should be [GFF3](https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md GFF3) format:
+Annotation file should be [GFF3](https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md 'GFF3') format:
 ```
 ctg123 . gene            1000  9000  .  +  .  ID=gene00001;Name=EDEN
 ctg123 . mRNA            1050  9000  .  +  .  ID=mRNA00001;Parent=gene00001;Name=EDEN.1

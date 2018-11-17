@@ -34,6 +34,7 @@ To find PAVs and construct a Pan-genome using reference and two query genomes, p
 ppsPCP currently only supports  ***Linux*** system due to the software dependencies. 
 
 ### Softwares
+Some of the following softwares may have already installed on your system because they are all frequently used in bioinformatics.
 1. MUMmer  
 You can find MUMmer [HERE](http://mummer.sourceforge.net/). Installing MUMmer is quite easy and version 3.X.X is needed:
 ```

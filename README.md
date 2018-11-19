@@ -166,7 +166,7 @@ If you have multiple query genomes:
 make_pan.pl --ref cultivar1.fa --ref_anno cultivar1.gff3 --query cultivar2.fa cultivar3.fa ... --query_anno cultivar2.gff3 cultivar2.gff3 ... &> run.log
 ```
 
-We also provide some other useful parameters to control the performance of ppsPCP. *--coverage*, *--sim_pav* and *--sim_gene* are used to filter out similar PAVs and genes described in above steps. We strongly suggest using multiple threads through*--thread*, witch can significantly improve the speed of blastn.
+We also provide some other useful parameters to control the performance of ppsPCP. *--coverage*, *--sim_pav* and *--sim_gene* are used to filter out similar PAVs and genes described in above steps. For highly similar species like different cultivars of rice, high *--coverage* and *--sim_pav* are suggest. We strongly suggest using multiple threads through *--thread*, witch can significantly improve the speed of blastn. 
 
 ## Contact us
 - Muhammad Tahir ul Qamar, m.tahirulqamar@webmail.hzau.edu.cn

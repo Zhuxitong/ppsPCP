@@ -67,7 +67,7 @@ $ cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlo
 # install Bio::Perl
 $ cpanm Bio::Perl
 ```
-### Download and Usage
+## Download and Usage
 Installing ppsPCP is very much easy. You can download and uncompress the ppsPCP package using wget or through git. 
 After downloading, put the bin directory into your PATH.
 ```

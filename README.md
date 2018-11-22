@@ -1,6 +1,6 @@
 # ppsPCP
 
-ppsPCP is a Pipeline to detect presence/absence variations (PAVs) and make fully annotated Pan-genome when one or multiple assembled plant genomes compared against one selected reference genome.
+ppsPCP is a Pipeline to scan presence/absence variations (PAVs) and make fully annotated Pan-genome when one or multiple assembled plant genomes compared against one selected reference genome.
 
 To find PAVs and construct a Pan-genome, ppcPCP perform the following steps: 
 ```
@@ -127,25 +127,9 @@ ctg123 . mRNA            1050  9000  .  +  .  ID=mRNA00001;Parent=gene00001;Name
 ctg123 . exon            1300  1500  .  +  .  ID=exon00001;Parent=mRNA00003
 ctg123 . CDS             1201  1500  .  +  0  ID=cds00001;Parent=mRNA00001;Name=edenprotein.1
 ```
-Although it is possible to construct a pan-genome without any annotation information, but then the downstream analyses can only be done based on sequence. So we strongly recommend you to create annotation file for your genome. There are lots of excellent tools to annote a genome, like [Maker](http://www.yandell-lab.org/software/maker.html), [PASA](https://github.com/PASApipeline/PASApipeline/wiki) and so on.
 ### Output files
-The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3' if you create pan-genome with two genome (one reference and one query), as well as some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... et al, with corresponding gff3 file for each of them.
-
-We also provide some useful information about the pan-genome during the construction of it, like the size of draft pan-genome, genes added into pan-genome from query genome and so on. See the log for more details.
-## Examlpe commands
-Type 'make_pan.pl -h' for a detailed look at the parameters in ppsPCP.
-
-If you have only one query genome: 
-```
-make_pan.pl --ref cultivar1.fa --ref_anno cultivar1.gff3 --query cultivar2.fa --query_anno cultivar2.gff3 &> run.log
-```
-If you have multiple query genomes:
-```
-make_pan.pl --ref cultivar1.fa --ref_anno cultivar1.gff3 --query cultivar2.fa cultivar3.fa ... --query_anno cultivar2.gff3 cultivar2.gff3 ... &> run.log
-```
-
-We also provide some other useful parameters to control the performance of ppsPCP. *--coverage*, *--sim_pav* and *--sim_gene* are used to filter out similar PAVs and genes described in above steps. For highly similar species like different cultivars of rice, high *--coverage* and *--sim_pav* are suggest. We strongly suggest using multiple threads through *--thread*, witch can significantly improve the speed of blastn. 
+The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3' if you create pan-genome with two genome (one reference and one query), as well as some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... et al, with corresponding gff3 file for each of them. The last pan-genome will be the final pan-genome representing PAVs scaned from every query genome. 
 
 ## Contact us
-- Muhammad Tahir ul Qamar, m.tahirulqamar@webmail.hzau.edu.cn
+- Muhammad Tahir ul Qamar, m.tahirulqamar@hotmail.com
 - Zhu xitong, z724@qq.com (E-mail can be in Chinese)

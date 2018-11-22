@@ -45,7 +45,7 @@ $ export PATH=/path/to/bedtools/bin:$PATH
 ```
 $ mkdir UCSC_tools
 $ rsync -aP rsync://hgdownload.soe.ucsc.edu/genome/admin/exe/linux.x86_64/ ./
-#Add blat to your PATH
+# Add blat to your PATH
 export PATH=/path/to/UCSC_tools/blat/:$PATH
 ```
 5. gffread  
@@ -62,14 +62,16 @@ Although most of the modules ppsPCP used are already exist, however you still ma
 Installing the perl module under Linux system sometimes can be troublesome due to the lack of adminstrator permission. 
 This [page](https://bioperl.org/INSTALL.html) inrtoduces three ways to install the Bio::Perl module, but in practice the *cpanm* is the most friendly way to install perl module. You can find a pre-compiled source code for the cpanm [HERE](https://github.com/miyagawa/cpanminus/tree/devel/App-cpanminus).
 ```
-
+#if you are using cpanm for the first time, type the following command on your system.(By default, the module installed through cpanm will be in '~/perl5' directory).
+$ cpanm --local-lib=~/perl5 local::lib && eval $(perl -I ~/perl5/lib/perl5/ -Mlocal::lib)
+# install Bio::Perl
+$ cpanm Bio::Perl
+```
 ### Download and Usage
 Installing ppsPCP is very much easy. You can download and uncompress the ppsPCP package using wget or through git. 
 After downloading, put the bin directory into your PATH.
 ```
 # download the ppsPCP
-$ wget
-or 
 git clone git@github.com:Zhuxiaobu/ppsPCP.git
 # Add the bin to PATH
 $ export PATH=/path/to/ppsPCP/bin/:$PATH

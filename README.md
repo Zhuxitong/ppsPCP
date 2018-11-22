@@ -72,6 +72,8 @@ Installing ppsPCP is very much easy. You can download and uncompress the ppsPCP 
 After downloading, put the bin directory into your PATH.
 ```
 # download the ppsPCP
+wget https://github.com/Zhuxiaobu/ppsPCP/archive/master.zip
+or
 git clone git@github.com:Zhuxiaobu/ppsPCP.git
 # Add the bin to PATH
 $ export PATH=/path/to/ppsPCP/bin/:$PATH

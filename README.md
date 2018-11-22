@@ -94,8 +94,8 @@ $ export PATH=/path/to/ppsPCP/bin/:$PATH
                             If supplied, must have the same order with the query sequence files
 
       ***Filter parameters
-            --coverage      The coverage used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.8
-            --sim_pav       The similarity used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.9
+            --coverage      The coverage used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.9
+            --sim_pav       The similarity used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.95
             --sim_gene      Then similarity used to filter mapped genes in blat mapping. Can be any number between 0 and 1. Default: 0.8
 
       ***Other parameters

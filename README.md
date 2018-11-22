@@ -128,6 +128,7 @@ ctg123 . exon            1300  1500  .  +  .  ID=exon00001;Parent=mRNA00003
 ctg123 . CDS             1201  1500  .  +  0  ID=cds00001;Parent=mRNA00001;Name=edenprotein.1
 ```
 ### Output files
+
 The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3' if you create pan-genome with two genome (one reference and one query), as well as some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... et al, with corresponding gff3 file for each of them. The last pan-genome will be the final pan-genome representing PAVs scaned from every query genome. 
 
 ## Contact us

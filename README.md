@@ -1,6 +1,6 @@
 # ppsPCP
 
-ppsPCP is a Pipeline to scan presence/absence variations (PAVs) and make fully annotated Pan-genome when one or multiple assembled plant genomes compared against one selected reference genome.
+ppsPCP is a Pipeline to scan presence/absence variants (PAVs) and make fully annotated Pan-genome when one or multiple assembled plant genomes compared against one selected reference genome.
 
 To find PAVs and construct a Pan-genome, ppcPCP perform the following steps: 
 ```

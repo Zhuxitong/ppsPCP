@@ -9,7 +9,7 @@ To find PAVs and construct a Pan-genome, ppcPCP perform the following steps:
   previous defined criteria are filtered out
 - Extracted unique PAVs and genes are merged with reference genome to construct a fully annotated pan-genome
 ```
-![Pipeline](./Figure 1.png)
+![Pipeline](Figure 1.png)
 
 ## Dependencies
 

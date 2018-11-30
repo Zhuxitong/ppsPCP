@@ -4,14 +4,13 @@ ppsPCP is a Pipeline to scan presence/absence variants (PAVs) and make fully ann
 
 To find PAVs and construct a Pan-genome, ppcPCP perform the following steps: 
 ```
-- The reference and query genomes are aligned together to scan PAVs. The minimum PAV seq set to 100bp
-- Genes assosiated with the PAVs, have no similarity with reference or not satisfy at least one of the previous 
-  defined criteria are filtered out
+- The reference and query genomes are aligned together, and PAVs are scanned. The minimum PAV length set to 100bp
+- All genes either assosiated with the PAVs, have no similarity with reference or not satisfy at least one of the 
+  previous defined criteria are filtered out
 - Extracted unique PAVs and genes are merged with reference genome to construct a fully annotated pan-genome
 ```
 
 ## Dependencies
-ppsPCP currently only supports ***Linux*** system due to the software dependency.
 
 1. MUMmer  
 You can find MUMmer [HERE](http://mummer.sourceforge.net/). Installing MUMmer is quite easy, and we used Mummer3.23:
@@ -114,6 +113,7 @@ $ make_pan.pl --ref Zmw_sc00394.1.fa --ref_anno Zmw_sc00394.1.gff3 --query Zjn_s
 ```
 If you receive any error, please check the log information or contact us through e-mail. 
 This result has no biological meaning because these two sequences are only a small part of two genomes from [HERE](http://zoysia.kazusa.or.jp/ "zoysia").
+
 ## Input and output files
 ### Input files
 At least two genome sequence files and two corresponding annotation files are required to run ppsPCP.
@@ -134,9 +134,9 @@ ctg123 . CDS             1201  1500  .  +  0  ID=cds00001;Parent=mRNA00001;Name=
 ```
 ### Output files
 
-The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3' if you create pan-genome with two genome (one reference and one query), as well as some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... et al, with corresponding gff3 file for each of them. The last pan-genome will be the final pan-genome representing PAVs scaned from every query genome. 
+The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3', if you create pan-genome with only two genome (one reference and one query), and some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... so on, with corresponding gff3 file for each of them. The last pan-genome will be the final pan-genome representing total set of PAVs/genes scaned from every query genome and merged into reference genome. 
 
 ## Contact us
 - Muhammad Tahir ul Qamar, m.tahirulqamar@hotmail.com
 - Zhu xitong, z724@qq.com (E-mail can be in Chinese)
-- Ling-Ling Chen, llchen@mail.hzau.edu.cn
+- Ling-Ling Chen, llchen@mail.hzau.edu.cn (E-mail can be in Chinese)

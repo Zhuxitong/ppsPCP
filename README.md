@@ -142,5 +142,5 @@ The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3', if you 
 ## Contact us
 - Muhammad Tahir ul Qamar, m.tahirulqamar@hotmail.com
 - Zhu xitong, z724@qq.com (E-mail can be in Chinese)
-- Feng Xing: xfengr@mail.hzau.edu.cn<br>
+- Feng Xing: xfengr@mail.hzau.edu.cn (E-mail can be in Chinese) 
 - Ling-Ling Chen, llchen@mail.hzau.edu.cn (E-mail can be in Chinese)

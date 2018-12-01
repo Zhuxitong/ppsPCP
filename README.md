@@ -9,7 +9,6 @@ To find PAVs and construct a Pan-genome, ppcPCP perform the following steps:
   previous defined criteria are filtered out
 - Extracted unique PAVs and genes are merged with reference genome to construct a fully annotated pan-genome
 ```
-![Pipeline](pipeline.png)
 
 ## Dependencies
 
@@ -135,7 +134,7 @@ ctg123 . mRNA            1050  9000  .  +  .  ID=mRNA00001;Parent=gene00001;Name
 ctg123 . exon            1300  1500  .  +  .  ID=exon00001;Parent=mRNA00003
 ctg123 . CDS             1201  1500  .  +  0  ID=cds00001;Parent=mRNA00001;Name=edenprotein.1
 ```
-***GFF*** format with 'gene' line can also be accepted by ppsPCP.
+***GFF*** format with 'gene' information line can also be accepted by ppsPCP.
 ### Output files
 
 The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3', if you create pan-genome with only two genome (one reference and one query), and some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... so on, with corresponding gff3 file for each of them. The last pan-genome will be the final pan-genome representing total set of PAVs/genes scaned from every query genome and merged into reference genome. 

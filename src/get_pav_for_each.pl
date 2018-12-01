@@ -1,5 +1,5 @@
+#! perl -w
 use strict;
-use warnings;
 use Bio::SeqIO;
 use Bio::Seq;
 my ($list,$fl,$fa,$ou,$oufa) = @ARGV;

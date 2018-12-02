@@ -1,7 +1,8 @@
-#! perl -w
 use strict;
+use warnings;
 use Bio::SeqIO;
 use Bio::Seq;
+use Data::Dumper;
 my ($list,$fl,$fa,$ou,$oufa) = @ARGV;
 open LI,$list;
 open FL,$fl;
@@ -34,11 +35,14 @@ while(<FL>){
 		$pre = $_;
 	}
 }
+
 my %seq;
 while(my $sub = $in->next_seq()){
 	my $id = $sub->id;
 	$seq{$id} = $sub;
 }
+
+my $name;
 while(<LI>){
 	chomp;
 	my @arr = split /\t/;
@@ -48,16 +52,17 @@ while(<LI>){
 		my $obj = Bio::Seq->new(-id=>$id,-seq=>$seq);
 		$out->write_seq($obj);
 		print OU "$_\t$arr[1]\t$arr[2]\n";
+		$name = $arr[$#arr];
 	}
 	
 }
 for my $key(sort keys %hash){
-	my @arr = split /\t/;
+	my @arr = split /\t/,$key;
 	my $seq = $seq{$arr[0]}->subseq($arr[1],$arr[2]);
 	my $id = join "_",@arr;
 	my $obj = Bio::Seq->new(-id=>$id,-seq=>$seq);
 	$out->write_seq($obj);
-	print OU "$arr[0]\t$arr[1]\t$arr[2]\n";
+	print OU "$arr[0]\t$arr[1]\t$arr[2]\t$name\t$arr[1]\t$arr[2]\n";
 }
 close LI;
 close FL;

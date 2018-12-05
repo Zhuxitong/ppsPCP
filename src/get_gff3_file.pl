@@ -1,9 +1,10 @@
 #! perl -w
 use strict;
 
+#get file
 my ($intersect, $gff3, $gff_res) = @ARGV;
 
-
+#parse gff3
 open IN, $gff3 or die $!;
 my %gene;
 my $name;

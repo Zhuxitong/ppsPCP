@@ -18,7 +18,7 @@
 # $12 = thread
 #########################################################################
 
-# File name parse
+# File name parser
 ref=$( basename $1 )
 query=$( basename $3 )
 

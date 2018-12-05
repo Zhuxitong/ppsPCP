@@ -2,7 +2,8 @@ use strict;
 use warnings;
 use Bio::SeqIO;
 use Bio::Seq;
-use Data::Dumper;
+
+
 my ($list,$fl,$fa,$ou,$oufa) = @ARGV;
 open LI,$list;
 open FL,$fl;
@@ -44,7 +45,6 @@ while(<FL>){
 		$hash{$key}++;
 	}
 }
-#print Dumper(\%hash);
 
 my %seq;
 while(my $sub = $in->next_seq()){

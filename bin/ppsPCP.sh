@@ -115,8 +115,8 @@ cat ${ref} ${querybase}_pav_seq.fa > ${res}_draft_genome.fa
 echo -n "Size of the draft pan-genome: "
 ls -lh "${querybase}to${refbase}_draft_genome.fa" | awk '{print $5}'
 
-intersectBed -a ${querybase}_pav.bed -b ${querygff} -wa -wb > ${querybase}_gene_relocation.txt
-perl $6/get_gff3_file.pl ${querybase}_gene_relocation.txt ${querybase}_gene_relocation.gff3
+intersectBed -a ${querybase}_pav.bed -b ${querybase}_loci.gff3 -wa -wb -F 1 > ${querybase}_gene_relocation.txt
+perl $6/get_gff3_file.pl ${querybase}_gene_relocation.txt ${querygff} ${querybase}_gene_relocation.gff3
 
 echo -n "Number of genes overlapped with ${querybase} PAVs and added into draft genome: "
 grep -P "\tgene\t" ${querybase}_gene_relocation.gff3 | cut -f 9 | sort | uniq | wc -l
@@ -142,7 +142,7 @@ cat ${querybase}_unmapped.genes.txt | wc -l
 echo -e "\nStep 9: Including missing/less similar genes to step 5 output for final process!\n"
 
 perl $6/get_unmapped_gene_bed.pl ${querybase}_unmapped.genes.txt ${querygff} ${querybase} | sortBed > ${querybase}.3.bed
-cat ${querybase}.bed ${querybase}.2.bed ${querybase}.3.bed | sortBed > ${querybase}_final.bed
+cut -f 1-4 ${querybase}_pav.bed | cat - ${querybase}.3.bed | sortBed > ${querybase}_final.bed
 
 
 #--------------------------------------------------------------------------------------------------
@@ -150,12 +150,12 @@ echo -e "\nStep 10: Generating final pan-genome and its annotation file!"
 
 intersectBed -a ${querybase}_final.bed -b ${querybase}_loci.gff3 -wa -wb > ${querybase}_pav_intersect_gene_final.gff3 
 perl $6/get_pav_for_each.pl ${querybase}_final.bed ${querybase}_pav_intersect_gene_final.gff3 ${query} ${querybase}_pav_region_final.txt ${querybase}_pavs_confirm_final.fa
-awk '{print $1"\t"$5"\t"$6"\t"$4"\t"$2"\t"$3}' ${querybase}_pav_region_final.txt | bedtools merge -i stdin -c 4,5,6 -o collapse | awk '{split($4,name,/,/);split($5,start,/,/);split($6,end,/,/);l=length(end);print $1"\t"$2"\t"$3"\t"$1"_"$2"_"$3}' > ${querybase}_pav_region_final2.txt
-awk '{print $1"\t"$5"\t"$6"\t"$4"\t"$2"\t"$3}' ${querybase}_pav_region_final.txt | bedtools merge -i stdin -c 4,5,6 -o collapse | awk '{split($4,name,/,/);split($5,start,/,/);split($6,end,/,/);l=length(end);print $1"\t"start[1]"\t"end[l]"\t"name[1]"\t"$2"\t"$3}' > ${querybase}_pav_region_final3.txt
+awk '{print $1"\t"$5"\t"$6"\t"$4"\t"$2"\t"$3}' ${querybase}_pav_region_final.txt | sortBed | bedtools merge -i stdin -c 4,5,6 -o collapse | awk '{split($4,name,/,/);split($5,start,/,/);split($6,end,/,/);l=length(end);print $1"\t"$2"\t"$3"\t"$1"_"$2"_"$3}' > ${querybase}_pav_region_final2.txt
+awk '{print $1"\t"$5"\t"$6"\t"$4"\t"$2"\t"$3}' ${querybase}_pav_region_final.txt | sortBed | bedtools merge -i stdin -c 4,5,6 -o collapse | awk '{split($4,name,/,/);split($5,start,/,/);split($6,end,/,/);l=length(end);print $1"\t"start[1]"\t"end[l]"\t"name[1]"\t"$2"\t"$3}' > ${querybase}_pav_region_final3.txt
 bedtools getfasta -fi ${query} -bed ${querybase}_pav_region_final2.txt -name | fold -w 80 > ${querybase}_pavs_confirm_final2.fa
 perl $6/get_the_pav_seq.pl ${querybase}_pav_region_final3.txt ${querybase}_pavs_confirm_final2.fa ${querybase}_pav_seq_final.fa ${querybase}_pav_final.agp ${querybase}_pav_final.bed ${querybase}
-intersectBed -a ${querybase}_pav_final.bed -b ${querygff} -wa -wb > ${querybase}_gene_relocation_final.txt
-perl $6/get_gff3_file.pl ${querybase}_gene_relocation_final.txt ${querybase}_gene_relocation_final.gff3
+intersectBed -a ${querybase}_pav_final.bed -b ${querybase}_loci.gff3 -wa -wb -F 1 > ${querybase}_gene_relocation_final.txt
+perl $6/get_gff3_file.pl ${querybase}_gene_relocation_final.txt ${querygff} ${querybase}_gene_relocation_final.gff3
 cat ${ref} ${querybase}_pav_seq_final.fa > pangenome$5.fa
 cat ${refgff} ${querybase}_gene_relocation_final.gff3 > pangenome$5.gff3
 

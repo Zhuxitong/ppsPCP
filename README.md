@@ -13,14 +13,15 @@ To find PAVs and construct a Pan-genome, ppcPCP perform the following steps:
 ## Dependencies
 
 1. MUMmer  
-You can find MUMmer [HERE](http://mummer.sourceforge.net/). Installing MUMmer is quite easy, and we used Mummer3.23:
+You can find MUMmer [HERE](https://github.com/mummer4/mummer/releases). Mummer-4.0.0beta2 is uesd. Mummer version 4.x.x requires a recent version of the GCC compiler (g++ version >= 4.7), which is hard to install if you have no ***administrator authority***. You can ask your system administrator for some help.
 ```
-$ wget https://sourceforge.net/projects/mummer/files/latest/download
-$ tar -xvzf MUMmerX.X.tar.gz (X means the VERSION of MUMmer)
-$ make check
+$ wget https://github.com/mummer4/mummer/releases/download/v4.0.0beta2/mummer-4.0.0beta2.tar.gz
+$ tar -xvzf mummer-4.0.0beta2.tar.gz
+$ ./configure --prefix=/path/to/installation
+$ make
 $ make install
 # Add MUMmer tools to your PATH
-$ export PATH=/path/to/MUMmer/:$PATH
+$ export PATH=/path/to/installation/:$PATH
 ```
 2. Blast+  
 You can find Blast+ [HERE](https://blast.ncbi.nlm.nih.gov/Blast.cgi) in NCBI. We used the x64-linux version of Blast+.
@@ -76,7 +77,7 @@ After downloading, put the bin directory into your PATH.
 # download the ppsPCP
 wget http://cbi.hzau.edu.cn/ppsPCP/files/ppsPCP.zip
 or
-git clone git@github.com:Zhuxiaobu/ppsPCP.git
+git clone git@github.com:Zhuxitong/ppsPCP.git
 # Add the bin to PATH
 $ export PATH=/path/to/ppsPCP/bin/:$PATH
 ```
@@ -103,7 +104,7 @@ $ export PATH=/path/to/ppsPCP/bin/:$PATH
       ***Other parameters
             --tmp           The temporary directory where you want to save the temporary files. Default: ./tmp
             --no_tmp        Delete tmp file when job finished
-            --thread        The number of thread used in blastn only. Remember not all the phases of ppsPCP are parallelized. Default: 1
+            --thread        The number of thread used in mummer and blastn. Remember not all the phases of ppsPCP are parallelized. Default: 1
 
 ```
 

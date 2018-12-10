@@ -124,7 +124,7 @@ make_pan.pl  -  To make a pan-genome
   ***Other parameters
 	--tmp		The temporary directory where you want to save the temporary files. Default: ./tmp
 	--no_tmp	Delete tmp file when job finished
-	--thread	The number of thread used in blastn only. Remember not all the phases of ppsPCP are parallelized. Default: 1
+	--thread	The number of thread used in mummer and blastn. Remember not all the phases of ppsPCP are parallelized. Default: 1
 	
 
 =head1 AUTHOR

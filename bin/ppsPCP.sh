@@ -53,7 +53,7 @@ grep -cP "\tgene\t" $2
 echo -n "Total number of genes in ${querybase}: "
 grep -cP "\tgene\t" $4
 
-nucmer -p $res $ref $query
+nucmer -p $res -t ${12} $ref $query
 delta-filter -1 ${res}.delta > ${res}.rq.delta
 show-coords -clrT -I 0.95 -L 100 ${res}.rq.delta > ${res}.rq.coords
 

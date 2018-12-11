@@ -13,7 +13,7 @@ To find PAVs and construct a Pan-genome, ppcPCP perform the following steps:
 ## Dependencies
 
 1. MUMmer  
-You can find MUMmer [HERE](https://github.com/mummer4/mummer/releases). Mummer-4.0.0beta2 is uesd. Mummer version 4.x.x requires a recent version of the GCC compiler (g++ version >= 4.7), which is hard to install if you have no ***administrator authority***. You can ask your system administrator for some help.
+You can find MUMmer [HERE](https://github.com/mummer4/mummer/releases). We used Mummer-4.0.0beta2. Mummer version 4.x.x requires a recent version of the GCC compiler (g++ version >= 4.7), which is hard to install if you have no ***administrator authority***. You can ask your system administrator for some help in this case.
 ```
 $ wget https://github.com/mummer4/mummer/releases/download/v4.0.0beta2/mummer-4.0.0beta2.tar.gz
 $ tar -xvzf mummer-4.0.0beta2.tar.gz
@@ -104,7 +104,7 @@ $ export PATH=/path/to/ppsPCP/bin/:$PATH
       ***Other parameters
             --tmp           The temporary directory where you want to save the temporary files. Default: ./tmp
             --no_tmp        Delete tmp file when job finished
-            --thread        The number of thread used in mummer and blastn. Remember not all the phases of ppsPCP are parallelized. Default: 1
+            --thread        The number of threads used for mummer and blastn. Remember not all the phases of ppsPCP are parallelized. Default: 1
 
 ```
 

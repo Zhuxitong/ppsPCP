@@ -84,6 +84,8 @@ $ export PATH=/path/to/ppsPCP/bin/:$PATH
 
 ## ppsPCP available options for users
 ```
+     Usage:                 make_pan.pl --ref [Ref Seq] --ref_anno [Ref Anno] --query [Que Seq] --query_anno [Que Anno] [Options] &> run.log 
+     
      Options:
 
       ***Help

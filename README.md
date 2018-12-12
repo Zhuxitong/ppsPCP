@@ -85,7 +85,7 @@ $ export PATH=/path/to/ppsPCP/bin/:$PATH
 ## ppsPCP available options for users
 ```
      Usage: 
-            make_pan.pl --ref [Ref Seq] --ref_anno [Ref Anno] --query [Que Seq] --query_anno [Que Anno] [Options] &> run.log 
+            make_pan.pl [options] --ref [reference_genome] --ref_anno [refernece_anno] --query query1_genome[query2...] --query_anno query1_anno[query2...] &> [job_name].log 
      
      Options:
 

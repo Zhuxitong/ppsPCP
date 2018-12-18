@@ -10,6 +10,47 @@ To find PAVs and construct a Pan-genome, ppcPCP perform the following steps:
 - Extracted unique PAVs and genes are merged with reference genome to construct a fully annotated pan-genome
 ```
 
+## Download and Usage
+Installing ppsPCP is very much easy. You can download and uncompress the ppsPCP package using wget or through git. 
+After downloading, put the bin directory into your PATH.
+```
+# download the ppsPCP
+wget http://cbi.hzau.edu.cn/ppsPCP/files/ppsPCP.zip
+or
+git clone git@github.com:Zhuxitong/ppsPCP.git
+# Add the bin to PATH
+$ export PATH=/path/to/ppsPCP/bin/:$PATH
+```
+
+## ppsPCP available options for users
+```
+     Usage: 
+            make_pan.pl [options] --ref [reference_genome] --ref_anno [refernece_anno] --query query1_genome[query2...] --query_anno query1_anno[query2...] &> [job_name].log 
+     
+     Options:
+
+      ***Help
+            --help|-h       Print the help message and exit.
+
+      ***Required parameters
+            --ref           Reference sequence file, usually a fasta file
+            --ref_anno      The gff3 annotation file for the reference sequence
+            --query         The query sequence files, can be one or more, separated with space
+            --query_anno    The gff3 annotation files corresponding to the query sequence files, optional. 
+                            If supplied, must have the same order with the query sequence files
+
+      ***Filter parameters
+            --coverage      The coverage used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.9
+            --sim_pav       The similarity used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.95
+            --sim_gene      Then similarity used to filter mapped genes in blat mapping. Can be any number between 0 and 1. Default: 0.8
+
+      ***Other parameters
+            --tmp           The temporary directory where you want to save the temporary files. Default: ./tmp
+            --no_tmp        Delete tmp file when job finished
+            --thread        The number of threads used for mummer and blastn. Remember not all the phases of ppsPCP are parallelized. Default: 1
+
+```
+
 ## Dependencies
 
 1. MUMmer  
@@ -70,56 +111,6 @@ $ cpanm Bio::Perl
 ```
 ppsPCP currently only supports ***Linux*** system due to the software dependencies.
 
-## Download and Usage
-Installing ppsPCP is very much easy. You can download and uncompress the ppsPCP package using wget or through git. 
-After downloading, put the bin directory into your PATH.
-```
-# download the ppsPCP
-wget http://cbi.hzau.edu.cn/ppsPCP/files/ppsPCP.zip
-or
-git clone git@github.com:Zhuxitong/ppsPCP.git
-# Add the bin to PATH
-$ export PATH=/path/to/ppsPCP/bin/:$PATH
-```
-
-## ppsPCP available options for users
-```
-     Usage: 
-            make_pan.pl [options] --ref [reference_genome] --ref_anno [refernece_anno] --query query1_genome[query2...] --query_anno query1_anno[query2...] &> [job_name].log 
-     
-     Options:
-
-      ***Help
-            --help|-h       Print the help message and exit.
-
-      ***Required parameters
-            --ref           Reference sequence file, usually a fasta file
-            --ref_anno      The gff3 annotation file for the reference sequence
-            --query         The query sequence files, can be one or more, separated with space
-            --query_anno    The gff3 annotation files corresponding to the query sequence files, optional. 
-                            If supplied, must have the same order with the query sequence files
-
-      ***Filter parameters
-            --coverage      The coverage used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.9
-            --sim_pav       The similarity used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.95
-            --sim_gene      Then similarity used to filter mapped genes in blat mapping. Can be any number between 0 and 1. Default: 0.8
-
-      ***Other parameters
-            --tmp           The temporary directory where you want to save the temporary files. Default: ./tmp
-            --no_tmp        Delete tmp file when job finished
-            --thread        The number of threads used for mummer and blastn. Remember not all the phases of ppsPCP are parallelized. Default: 1
-
-```
-
-## Test ppsPCP with example data
-A small dataset in the 'example' directory can be used to test whether ppsPCP can run on your system successfully or not. Move to the 'example' directory and type the following commands:
-```
-$ cd example
-$ make_pan.pl --ref Zmw_sc00394.1.fa --ref_anno Zmw_sc00394.1.gff3 --query Zjn_sc00188.1.fa --query_anno Zjn_sc00188.1.gff3 &> run.log
-```
-If you receive any error, please check the log information or contact us through e-mail. 
-This result has no biological meaning because these two sequences are only a small part of two genomes from [HERE](http://zoysia.kazusa.or.jp/ "zoysia").
-
 ## Input and output files
 ### Input files
 At least two genome sequence files and two corresponding annotation files are required to run ppsPCP.
@@ -142,6 +133,18 @@ ctg123 . CDS             1201  1500  .  +  0  ID=cds00001;Parent=mRNA00001;Name=
 ### Output files
 
 The main output files of ppsPCP are 'pangenome.fa' and 'pangenome.gff3', if you create pan-genome with only two genome (one reference and one query), and some useful information about the pan-genome like number of PAVs in query, number of genes merged into pan-genome and so on. ppsPCP supports multiple query genome files, which will produce 'pangenome1.fa', 'pangenome2.fa'... so on, with corresponding gff3 file for each of them. The last pan-genome will be the final pan-genome representing total set of PAVs/genes scaned from every query genome and merged into reference genome. 
+
+## Test ppsPCP with example data
+A small dataset in the 'example' directory can be used to test whether ppsPCP can run on your system successfully or not. Move to the 'example' directory and type the following commands:
+```
+$ cd example
+$ make_pan.pl --ref Zmw_sc00394.1.fa --ref_anno Zmw_sc00394.1.gff3 --query Zjn_sc00188.1.fa --query_anno Zjn_sc00188.1.gff3 &> run.log
+```
+If you receive any error, please check the log information or contact us through e-mail. 
+This result has no biological meaning because these two sequences are only a small part of two genomes from [HERE](http://zoysia.kazusa.or.jp/ "zoysia").
+
+## Reference
+Muhammad Tahir ul Qamar, Xitong Zhu, Feng Xing, Ling-Ling Chen. ppsPCP: A Plant Presence/absence Variants Scanner and Pan-genome Construction Pipeline. (submitted)
 
 ## Contact us
 - Muhammad Tahir ul Qamar; m.tahirulqamar@hotmail.com

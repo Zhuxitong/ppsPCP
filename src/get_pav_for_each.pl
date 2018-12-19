@@ -57,7 +57,7 @@ while(<LI>){
 	chomp;
 	my @arr = split /\t/;
 	if (!exists($exists{$arr[0]}{$arr[1]}{$arr[2]})){
-		my $seq = $seq{$arr[0]}->subseq($arr[1],$arr[2]);
+		my $seq = $seq{$arr[0]}->subseq($arr[1] + 1,$arr[2]);
 		my $id = join "_",@arr[0..2];
 		my $obj = Bio::Seq->new(-id=>$id,-seq=>$seq);
 		$out->write_seq($obj);
@@ -68,7 +68,7 @@ while(<LI>){
 }
 for my $key(sort keys %hash){
 	my @arr = split /\t/,$key;
-	my $seq = $seq{$arr[0]}->subseq($arr[1],$arr[2]);
+	my $seq = $seq{$arr[0]}->subseq($arr[1] + 1,$arr[2]);
 	my $id = join "_",@arr;
 	my $obj = Bio::Seq->new(-id=>$id,-seq=>$seq);
 	$out->write_seq($obj);

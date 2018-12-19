@@ -18,6 +18,18 @@
 # $12 = thread
 #########################################################################
 
+#check for commands
+for com in nucmer delta-filter show-coords perl makeblastdb blastn gffread blat bedtools
+do
+	mg=$(command -v $com)
+	if [ "$mg" == "" ]
+	then
+		echo -e "\n\tError: Command $com is NOT in you PATH. Please check.\n"
+		exit 1
+	fi
+done
+
+
 # File name parser
 ref=$( basename $1 )
 query=$( basename $3 )
@@ -32,6 +44,7 @@ querybase=${querybase%\.*}
 
 res="${querybase}to${refbase}"
 
+
 # Create link files for  genome and annotation file in tmp
 
 if [ ! -e "$ref" ]
@@ -42,6 +55,15 @@ fi
 
 ln -s $3
 ln -s $4
+
+#check for 'gene' line
+gene=$(grep -m 1 -P "\tgene\t" $4 | head -n 1)
+if [ "$gene" == '' ]
+then
+	echo -e "\n\tNo gene line found in $4, please check the README.md for the requirements of input files\n"
+	exit 1
+fi
+
 
 #--------------------------------------------------------------------------------------------------
 echo -e "\n##########################################################################################\n"
@@ -89,7 +111,7 @@ cat ${querybase}_unmapped_pavs.txt | wc -l
 
 
 #--------------------------------------------------------------------------------------------------
-echo -e "\nStep 5: Extension and correction of filtered PAVs by matching them with reference genome to get full gene covering regions!"
+echo -e "\nStep 5: Extension and correction of filtered PAVs by matching them with query genome to get full gene covering regions!"
 
 perl $6/sep_pav_bed.pl ${querybase}_unmapped_pavs.txt ${querybase}.2
 cat ${querybase}.bed ${querybase}.2.bed | sortBed > ${querybase}_draft.bed

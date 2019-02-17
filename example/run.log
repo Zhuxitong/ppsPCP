@@ -1,0 +1,55 @@
+
+##########################################################################################
+
+Step 1: Aligning Zjn_sc00188.1.fa to Zmw_sc00394.1.fa with nucmer!
+Total number of genes in Zmw_sc00394.1: 27
+Total number of genes in Zjn_sc00188.1: 12
+
+Step 2: Extracting PAVs from nucmer output!
+Total number of PAVs extracted from Zjn_sc00188.1: 10
+
+Step 3: Aligning the extracted PAVs against reference genome using blastn!
+
+
+Building a new DB, current time: 02/17/2019 15:59:14
+New DB name:   /public/home/tahir/softwares/ppsPCP/example/tmp/Zmw_sc00394.1_database
+New DB title:  Zmw_sc00394.1_DB
+Sequence type: Nucleotide
+Keep MBits: T
+Maximum file size: 1000000000B
+Adding sequences from FASTA; added 1 sequences in 0.126485 seconds.
+
+Step 4: Filtering PAVs from blastn output (1. high coverage and similarity, 2. unmapped/ no similarity)!
+Number of filtered Zjn_sc00188.1 PAVs having definded covergae/similarity: 7
+Number of filtered Zjn_sc00188.1 PAVs having no similarity/hit with Zmw_sc00394.1: 3
+
+Step 5: Extension and correction of filtered PAVs by matching them with query genome to get full gene covering regions!
+Total number of Zjn_sc00188.1 PAVs after boundries correction: 10
+
+Step 6: Filtering and annotating genes overlapped with extracted PAVs!
+
+Step 7: Merging filtered information with reference genome and making sequence based draft pan-genome!
+Size of the draft pan-genome: 401K
+Number of genes overlapped with Zjn_sc00188.1 PAVs and added into draft genome: 12
+
+Step 8: Realigning the draft pan-genome to query genome as reference using BLAT, to filter less similar genes or genes not fulfill the previous defined criteria!
+No fasta index found for Zjn_sc00188.1.fa. Rebuilding, please wait..
+Fasta index rebuilt.
+Loaded 403788 letters in 2 sequences
+Searched 8569 bases in 12 sequences
+
+Number of Zjn_sc00188.1 genes mapped to draft pan-genome: 12
+Number of Zjn_sc00188.1 genes NOT mapped to draft pan-genome: 0
+
+Step 9: Including missing/less similar genes to step 5 output for final process!
+
+No unmapped gene found, keep processing!
+
+Step 10: Generating final pan-genome and its annotation file!
+Number of Zjn_sc00188.1 PAVs added to the pan-genome1: 8
+Number of Zjn_sc00188.1 genes added to the pan-genome1: 12
+Average length of Zjn_sc00188.1 PAVs: 24.021Kb
+Total size of the pan-genome1: 401K
+Total number of genes in the pan-genome1: 39
+
+Job successfully completed. Check current directory for final results!

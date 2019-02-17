@@ -145,6 +145,7 @@ This result has no biological meaning because these two sequences are only a sma
 
 ## Reference
 Muhammad Tahir ul Qamar, Xitong Zhu, Feng Xing, Ling-Ling Chen. ppsPCP: A Plant Presence/absence Variants Scanner and Pan-genome Construction Pipeline. (submitted)
+All the data used in above paper and the outputs can be downloaded from here [Rice](http://cbi.hzau.edu.cn/ppsPCP/files/rice_ppsPCP.tar.gz "rice") and [Arabidopsis](http://cbi.hzau.edu.cn/ppsPCP/files/arabidopsis_ppsPCP.tar.gz "arabidopsis"). 
 
 ## Contact us
 - Muhammad Tahir ul Qamar; m.tahirulqamar@hotmail.com

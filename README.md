@@ -146,7 +146,7 @@ If you receive any error, please check the log information or contact us through
 This result has no biological meaning because these two sequences are only a small part of two genomes from [HERE](http://zoysia.kazusa.or.jp/ "zoysia").
 
 ## Reference
-Muhammad Tahir ul Qamar, Xitong Zhu, Feng Xing, Ling-Ling Chen. ppsPCP: A Plant Presence/absence Variants Scanner and Pan-genome Construction Pipeline. *Bioinformatics*, btz168. [https://doi.org/10.1093/bioinformatics/btz168](https://doi.org/10.1093/bioinformatics/btz168 'ppsPCP')
+Muhammad Tahir ul Qamar, Xitong Zhu, Feng Xing, Ling-Ling Chen. ppsPCP: A Plant Presence/absence Variants Scanner and Pan-genome Construction Pipeline. *Bioinformatics*, [https://doi.org/10.1093/bioinformatics/btz168](https://doi.org/10.1093/bioinformatics/btz168 'ppsPCP')
 
 All the data used in above paper and the outputs can be downloaded from here [Rice](http://cbi.hzau.edu.cn/ppsPCP/files/rice_ppsPCP.tar.gz "rice") and [Arabidopsis](http://cbi.hzau.edu.cn/ppsPCP/files/arabidopsis_ppsPCP.tar.gz "arabidopsis"). 
 

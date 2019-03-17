@@ -114,7 +114,7 @@ make_pan.pl  -  To make a pan-genome
 	--ref		Reference sequence file, usually a fasta file
 	--ref_anno	The gff3 annotation file for the reference sequence
 	--query		The query sequence files, can be one or more, separated with space
-	--query_anno	The gff3 annotation files corresponding to the query sequence files, optional. If supplied, must have the same order with the query sequence files
+	--query_anno	The gff3 annotation files corresponding to the query sequence files, must have the same order with the query sequence files
 
   ***Filter parameters
 	--coverage	The coverage used to filter similar PAVs. Can be any number between 0 and 1. Default: 0.9

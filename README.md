@@ -4,7 +4,6 @@
 
 ppsPCP is a Pipeline to scan presence/absence variants (PAVs) and make fully annotated Pan-genome when one or multiple assembled plant genomes compared against one selected reference genome. ppsPCP can also be used for prokaryotes and other eukaryotes like animals etc.
 
-An introduction of ppsPCP in Chinese can be found [HERE](https://mp.weixin.qq.com/s?__biz=MzUzMTEwODk0Ng==&mid=2247487392&idx=1&sn=2a6a5c878313838a95d697a95c6c72d2&chksm=fa46ca9dcd31438bb5f3f595d43a40765bb82fba5d3f8a1f80f7679d90e574381b8068bb81fc&mpshare=1&scene=2&srcid=&from=timeline&ascene=2&devicetype=android-27&version=2700033c&nettype=WIFI&abtest_cookie=BAABAAoACwASABMABQAjlx4AVpkeAMSZHgDTmR4A3JkeAAAA&lang=zh_CN&pass_ticket=r9l59c3GEUVZpPgqqloJ5dGmBhDYx9QbJYDdv80ORjFBGqjFO2%2Fn8N%2BDak4A%2BYXk&wx_header=1). Thanks lakeseafly from 生信菜鸟团 for making this.
 
 To find PAVs and construct a Pan-genome, ppcPCP perform the following steps: 
 ```

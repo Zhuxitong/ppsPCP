@@ -174,7 +174,7 @@ intersectBed -a ${querybase}_final.bed -b ${querybase}_loci.gff3 -wa -wb > ${que
 perl $6/get_pav_for_each.pl ${querybase}_final.bed ${querybase}_pav_intersect_gene_final.gff3 ${query} ${querybase}_pav_region_final.txt ${querybase}_pavs_confirm_final.fa
 awk '{print $1"\t"$5"\t"$6"\t"$4"\t"$2"\t"$3}' ${querybase}_pav_region_final.txt | sortBed | bedtools merge -i stdin -c 4,5,6 -o collapse | awk '{split($4,name,/,/);split($5,start,/,/);split($6,end,/,/);l=length(end);print $1"\t"$2"\t"$3"\t"$1"_"$2"_"$3}' > ${querybase}_pav_region_final2.txt
 awk '{print $1"\t"$5"\t"$6"\t"$4"\t"$2"\t"$3}' ${querybase}_pav_region_final.txt | sortBed | bedtools merge -i stdin -c 4,5,6 -o collapse | awk '{split($4,name,/,/);split($5,start,/,/);split($6,end,/,/);l=length(end);print $1"\t"start[1]"\t"end[l]"\t"name[1]"\t"$2"\t"$3}' > ${querybase}_pav_region_final3.txt
-bedtools getfasta -fi ${query} -bed ${querybase}_pav_region_final2.txt -name | fold -w 80 > ${querybase}_pavs_confirm_final2.fa
+bedtools getfasta -fi ${query} -bed ${querybase}_pav_region_final2.txt -name -fo ${querybase}_pavs_confirm_final2.fa
 perl $6/get_the_pav_seq.pl ${querybase}_pav_region_final3.txt ${querybase}_pavs_confirm_final2.fa ${querybase}_pav_seq_final.fa ${querybase}_pav_final.agp ${querybase}_pav_final.bed ${querybase}
 intersectBed -a ${querybase}_pav_final.bed -b ${querybase}_loci.gff3 -wa -wb -F 1 > ${querybase}_gene_relocation_final.txt
 perl $6/get_gff3_file.pl ${querybase}_gene_relocation_final.txt ${querygff} ${querybase}_gene_relocation_final.gff3

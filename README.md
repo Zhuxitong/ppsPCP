@@ -77,7 +77,7 @@ $ tar zxvf ncbi-blast-2.7.1+-x64-linux.tar.gz
 $ export PATH=/path/to/blast+/bin:$PATH
 ```
 3. Bedtools  
-[Bedtools](https://bedtools.readthedocs.io/en/latest/) is a powerful toolset for genome arithmetic. It is also very easy to install. In this pipeline, four sub-tools of Bedtools are used: *getfasta*, *intersect*, *merge* and *sort*.
+[Bedtools](https://bedtools.readthedocs.io/en/latest/) is a powerful toolset for genome arithmetic. It is also very easy to install. In this pipeline, four sub-tools of Bedtools are used: *getfasta*, *intersect*, *merge* and *sort*. **IMPORTANT**: *Please make sure that you are using bedtools version 2.25.0 because we found many bugs in subsequent versions in getfasta, which would cause only Ns base in the final output*
 ```
 $ wget https://github.com/arq5x/bedtools2/releases/download/v2.25.0/bedtools-2.25.0.tar.gz
 $ tar -zxvf bedtools-2.25.0.tar.gz

@@ -10,7 +10,7 @@ my %gene;
 my $name;
 while (<IN>) {
 	chomp;
-	next if (/^#/ or /\tchromosome\t/ or /\tcontig\t/ or /\tscaffold\t/);
+	next if (/^#/ or /\tchromosome\t/ or /\tcontig\t/ or /\tscaffold\t/ or /^$/);
 	if (/\tgene\t/) {
 		$_ = $_.";";
 		($name) = $_ =~ /ID=(.*?);/;

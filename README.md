@@ -1,3 +1,8 @@
+# Change logs
+2020-07-22
+1. Using **bedtools 2.25.0 because**, later versions have bugs in bedtools getfasta with -name option, which lead to **All Ns** in the final output. See this [link](https://github.com/arq5x/bedtools2/issues/805) for details .
+
+
 # ppsPCP
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2567390.svg)](https://doi.org/10.5281/zenodo.2567390)

@@ -77,7 +77,7 @@ grep -cP "\tgene\t" $4
 
 nucmer -p $res -t ${12} $ref $query
 delta-filter -1 ${res}.delta > ${res}.rq.delta
-show-coords -clrT -I 0.95 -L 100 ${res}.rq.delta > ${res}.rq.coords
+show-coords -clrT -I 95 -L 100 ${res}.rq.delta > ${res}.rq.coords
 
 
 #--------------------------------------------------------------------------------------------------
